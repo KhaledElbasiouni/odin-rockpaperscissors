@@ -9,13 +9,31 @@
         <title>Rock Paper Scissors</title>
     </head>
     <body>
-        <button class="selection btn-rock">Rock</button>
-        <button class="selection btn-paper" >Paper</button>
-        <button class="selection btn-scissors">Scissors</button>
-        <button class="reset">RESET</button>
+        <header>
+            <h1>ROCK &nbsp; PAPER &nbsp; &nbsp;SCISSORS</h1>
+        </header>
+        
+        <section class="buttons">
+            <button id="rock" class="selection btn-rock">
+                <div class="icon">🗿</div>
+                <div>ROCK</div>
+            </button>
+            <button id="paper" class="selection btn-paper">
+                <div class="icon">🧻</div>
+                <div>PAPER</div>
+            </button>
+            <button id="scissors" class="selection btn-scissors">
+                <div class="icon">✂️</div>
+                <div>SCISSORS</div>
+            </button>
+        </section>
         <div class="result"></div>
-        <div class="player-score">Player:<span></span> </div>
-        <div class="comp-score">Bot:<span></span></div>
-        <div class="winner"></div>
+        <div class="scoreboard">
+            <div class="player-score">Player: <span></span> </div>
+            <div class="comp-score">Bot: <span></span></div>
+            <div class="winner"></div>
+            <button class="reset">RESET</button> 
+        </div>
+
     </body>
 </html>

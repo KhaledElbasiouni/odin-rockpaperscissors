@@ -60,6 +60,7 @@ function resetGame(){
     cScore.textContent = '';
     result.textContent = '';
     winner.textContent = '';
+    reset.style.display = 'none';
 }
 
 
@@ -73,18 +74,22 @@ const reset = document.querySelector('.reset');
 const buttons = document.querySelectorAll('.selection');
 buttons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        result.textContent = playRound(e.target.textContent,computerPlay());
+        console.log(this);
+        result.textContent = playRound(e.currentTarget.id,computerPlay());
         pScore.textContent = playerScore;
         cScore.textContent = compScore;
         if(playerScore === 5){
             winner.textContent = 'PLAYER WINS! BOT LOSES! (OBVIOUSLY)';
             buttons.forEach(btn=>btn.disabled = true);
+            reset.style.display = 'initial';
         }else if(compScore === 5){
-            buttons.forEach(btn=>btn.disabled = true);
             winner.textContent = 'BOT WINS! HUMAN LOSES! (01011101101)';
+            buttons.forEach(btn=>btn.disabled = true);
+            reset.style.display = 'initial';
         }
         // console.log(e.target.textContent);
-    })
+        e.stopPropagation();
+    }, {capture:true})
 });
 
 reset.addEventListener('click', resetGame);
